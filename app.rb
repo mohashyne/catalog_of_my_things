@@ -1,2 +1,3 @@
-start = 'Hello start project'
-puts start
+class App
+  def finish; end
+end
