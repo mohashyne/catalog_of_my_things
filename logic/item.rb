@@ -3,7 +3,7 @@ require 'date'
 class Item
   attr_accessor :id, :genre, :author, :source, :label, :archived, :publish_date
 
-  def initialize(id, _genre, _author, _source, _label, publish_date, _archived)
+  def initialize(id, publish_date)
     @id = id
     @publish_date = publish_date
     @archived = false
