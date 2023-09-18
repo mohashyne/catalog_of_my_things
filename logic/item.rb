@@ -29,3 +29,12 @@ class Item
 
   def add_source; end
 end
+def can_be_archived?
+  current_date = Date.today
+  years = current_date.year - @publish_date.year
+  years > 10
+end
+def move_to_archive
+  return unless can_be_archived?
+  @archived = true
+end
