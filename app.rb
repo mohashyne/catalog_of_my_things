@@ -3,6 +3,8 @@ require_relative 'logic/label'
 require_relative 'logic/book'
 require_relative 'logic/checkdata'
 require_relative 'logic/user_interact'
+require_relative 'logic/music_album'
+require_relative 'logic/genre'
 
 class App
   include DataManager
