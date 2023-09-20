@@ -92,5 +92,4 @@ class CheckData
            "Last Name: #{author.last_name}"
     end
   end
-
 end

@@ -81,8 +81,8 @@ class UserInteract
       choose = gets.chomp.downcase
       return true if choose == 'y'
       return false if choose == 'n'
+
       puts 'Invalid option, please enter Y or N.'
     end
   end
-
 end

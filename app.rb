@@ -5,6 +5,8 @@ require_relative 'logic/checkdata'
 require_relative 'logic/user_interact'
 require_relative 'logic/music_album'
 require_relative 'logic/genre'
+require_relative 'logic/author'
+require_relative 'logic/game'
 
 class App
   include DataManager
@@ -16,6 +18,8 @@ class App
     @check = CheckData.new
     @albums = read_all_albums(@labels)
     @genres = read_all_genres
+    @authors = read_all_authors
+    @games = read_all_game(@authors)
   end
 
   def list_books
@@ -111,10 +115,57 @@ class App
     end
   end
 
+  def list_authors
+    @check.check_list_authors(@authors)
+  end
+
+  def list_games
+    @check.check_list_games(@games)
+  end
+
+  def add_game
+    new_game
+    puts "\nGame added successfully."
+  end
+
+  def new_game
+    id = Random.rand(1..1000)
+    publish_date = @u_interact.publish_date('Enter publish date for the game')
+    multiplayer = @u_interact.multiplayer
+    last_played_date = @u_interact.publish_date('Enter Last Played date')
+    if @authors.empty?
+      author = add_author
+    else
+      list_authors
+      aut_choose = @u_interact.select_author
+      author = if %w[n N].include?(aut_choose)
+                 add_author
+               else
+                 @authors[aut_choose.to_i]
+               end
+    end
+    game = Game.new(id, publish_date, multiplayer, last_played_date)
+    game.add_author(author)
+    @games << game
+  end
+
+  def add_author
+    id = Random.rand(5000..10_000)
+    first_name = @u_interact.name
+    last_name = @u_interact.last_name
+
+    author = Author.new(id, first_name, last_name)
+    @authors << author
+    author
+  end
+
   def finish
     save_book(@books) unless @books.empty?
     save_label(@labels) unless @labels.empty?
     save_album(@albums) unless @albums.empty?
     save_genre(@genres) unless @genres.empty?
+    save_game(@games)  unless @games.empty?
+    save_authors(@authors) unless @authors.empty?
   end
+  
 end
