@@ -85,8 +85,6 @@ class App
     puts "\nAlbum added successfully."
   end
 
-  private
-
   def new_album
     id = Random.rand(1..1000)
     publish_date = @u_interact.publish_date('Enter publish date for the album')
