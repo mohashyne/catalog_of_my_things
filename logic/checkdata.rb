@@ -60,4 +60,23 @@ class CheckData
            "Name: #{genre.name}"
     end
   end
+
+  def check_list_games(games)
+    puts "\nGame List:"
+    if games.empty?
+      puts "\nNo games available."
+      return nil
+    end
+
+    games.each_with_index do |game, idx|
+      puts "\n#{idx}) " \
+           "ID: #{game.id}, " \
+           "Label: #{game.label.title}, " \
+           "Publish Date: #{game.publish_date}, " \
+           "Multiplayer: #{game.multiplayer}, " \
+           "Last Played At: #{game.last_played_at}"
+    end
+  end
+
+
 end
