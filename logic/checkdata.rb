@@ -78,5 +78,19 @@ class CheckData
     end
   end
 
+  def check_list_authors
+    puts "\nAuthor List:"
+    if @authors
+      puts "\nNo authors available."
+      return nil
+    end
+
+    authors.each_with_index do |author, idx|
+      puts "\n#{idx}) " \
+           "ID: #{author.id}, " \
+           "First Name: #{author.first_name}, " \
+           "Last Name: #{author.last_name}"
+    end
+  end
 
 end
