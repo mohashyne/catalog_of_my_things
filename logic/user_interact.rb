@@ -1,5 +1,4 @@
 require 'date'
-
 class UserInteract
   def option
     puts "\n"
@@ -13,9 +12,27 @@ class UserInteract
     year = gets.chomp
     puts "\nEnter month in numbers, eg.: 04 for April"
     month = gets.chomp
-    puts "\nEnter day"
+    puts "\nEnter date"
     day = gets.chomp
     Date.parse("#{year}-#{month}-#{day}")
+  end
+
+  def on_spotify?
+    puts "\nIs your album on Spotify (Y/N)?"
+    input = gets.chomp
+    to_cap_letter = input.capitalize
+    to_cap_letter == 'Y'
+  end
+
+  def add_genre
+    puts "\nPlease write the Music Genre you want to add"
+    input = gets.chomp
+    input.capitalize
+    input
+  end
+
+  def select_genre
+    gets.chomp
   end
 
   def title
@@ -39,14 +56,12 @@ class UserInteract
     puts '2) Good'
     selected_option = gets.chomp.to_i
     cover = nil
-
     case selected_option
     when 1 then cover = 'bad'
     when 2 then cover = 'good'
     else
       puts "\nInvalid option..."
     end
-
     cover
   end
 
@@ -55,34 +70,32 @@ class UserInteract
     gets.chomp
   end
 
-  def on_spotify
-    puts "\nIs the album available on Spotify? (yes/no)"
-    gets.chomp.downcase == 'yes'
+  def multiplayer
+    loop do
+      puts "\nThe game it is multiplayer (Y)es (N)o"
+      choose = gets.chomp
+      if %w[Y y].include?(choose)
+        return true
+      elsif %w[N n].include?(choose)
+        return false
+      else
+        puts 'Invalid option, try again'
+      end
+    end
   end
 
   def name
-    puts "\nAdd the Author name"
+    puts "\nEnter author name"
     gets.chomp
   end
 
-  def last_name
-    puts "\nAdd the Author last name"
+  def lname
+    puts "\nEnter author last name"
     gets.chomp
   end
 
   def select_author
-    puts 'Select an Author from the above list by the index [not id] or press (n) if you need to add a new one'
+    puts 'Select author by the index [not id] or press (n) if you need to add a new one'
     gets.chomp
-  end
-
-  def multiplayer
-    loop do
-      puts "\nThe game is multiplayer? (Y/N)"
-      choose = gets.chomp.downcase
-      return true if choose == 'y'
-      return false if choose == 'n'
-
-      puts 'Invalid option, please enter Y or N.'
-    end
   end
 end
