@@ -11,4 +11,9 @@ class MusicAlbum < Item
   def can_be_archived?
     super && @on_spotify
   end
+
+  def add_label(label)
+    @label = label
+    label.add_item(self)
+  end
 end

@@ -14,6 +14,8 @@ class App
     @books = read_all_books(@labels)
     @u_interact = UserInteract.new
     @check = CheckData.new
+    @albums = read_all_albums(@labels)
+    @genres = read_all_genres
   end
 
   def list_books
@@ -70,8 +72,51 @@ class App
     @books << book
   end
 
+  def list_albums
+    @check.check_list_albums(@albums)
+  end
+
+  def list_genres
+    @check.check_list_genres(@genres)
+  end
+
+  def add_album
+    new_album
+    puts "\nAlbum added successfully."
+  end
+
+  private
+
+  def new_album
+    id = Random.rand(1..1000)
+    publish_date = @u_interact.publish_date('Enter publish date for the album')
+    on_spotify = @u_interact.on_spotify
+    label = select_or_create_label
+
+    album = MusicAlbum.new(id, publish_date, on_spotify)
+    album.add_label(label)
+    @albums << album
+  end
+
+  def select_or_create_label
+    if @labels.empty?
+      new_label
+    else
+      list_labels
+      label_option_selected = @u_interact.select_label
+      if %w[n N].include?(label_option_selected)
+        new_label
+      else
+        label_index = label_option_selected.to_i
+        @labels[label_index]
+      end
+    end
+  end
+
   def finish
     save_book(@books) unless @books.empty?
     save_label(@labels) unless @labels.empty?
+    save_album(@albums) unless @albums.empty?
+    save_genre(@genres) unless @genres.empty?
   end
 end
