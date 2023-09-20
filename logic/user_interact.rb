@@ -54,4 +54,9 @@ class UserInteract
     puts 'Select a Label from the above list by the index [not id] or press (n) if you need to add a new one'
     gets.chomp
   end
+
+  def on_spotify
+    puts "\nIs the album available on Spotify? (yes/no)"
+    gets.chomp.downcase == 'yes'
+  end
 end

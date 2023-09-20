@@ -30,4 +30,34 @@ class CheckData
            "Color: #{label.color}, "
     end
   end
+
+  def check_list_albums(albums)
+    puts "\nAlbum List:"
+    if albums.empty?
+      puts "\nNo albums available."
+      return nil
+    end
+
+    albums.each_with_index do |album, idx|
+      puts "\n#{idx}) " \
+           "ID: #{album.id}, " \
+           "Label: #{album.label.title}, " \
+           "Publish Date: #{album.publish_date}, " \
+           "On Spotify: #{album.on_spotify}"
+    end
+  end
+
+  def check_list_genres(genres)
+    puts "\nGenre List:"
+    if genres.empty?
+      puts "\nNo genres available."
+      return nil
+    end
+
+    genres.each_with_index do |genre, idx|
+      puts "\n#{idx}) " \
+           "ID: #{genre.id}, " \
+           "Name: #{genre.name}"
+    end
+  end
 end
