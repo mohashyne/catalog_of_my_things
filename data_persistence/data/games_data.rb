@@ -1,6 +1,7 @@
 require_relative '../file_helper'
 
 module GameData
+  FILENAME = 'games.json'.freeze
   include FileManager
 
   def game_to_json(games)

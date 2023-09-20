@@ -1,6 +1,7 @@
 require_relative '../file_helper'
 
 module AuthorData
+  FILENAME = 'author.json'.freeze
   include FileManager
 
   def author_to_json(authors)

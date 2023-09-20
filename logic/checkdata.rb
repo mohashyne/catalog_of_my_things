@@ -67,11 +67,12 @@ class CheckData
       puts "\nNo games available."
       return nil
     end
-
+  
     games.each_with_index do |game, idx|
+      label_title = game.label ? game.label.title : 'N/A'
       puts "\n#{idx}) " \
            "ID: #{game.id}, " \
-           "Label: #{game.label.title}, " \
+           "Label: #{label_title}, " \
            "Publish Date: #{game.publish_date}, " \
            "Multiplayer: #{game.multiplayer}, " \
            "Last Played At: #{game.last_played_at}"
