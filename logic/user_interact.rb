@@ -59,4 +59,30 @@ class UserInteract
     puts "\nIs the album available on Spotify? (yes/no)"
     gets.chomp.downcase == 'yes'
   end
+
+  def name
+    puts "\nAdd the Author name"
+    gets.chomp
+  end
+
+  def last_name
+    puts "\nAdd the Author last name"
+    gets.chomp
+  end
+
+  def select_author
+    puts 'Select an Author from the above list by the index [not id] or press (n) if you need to add a new one'
+    gets.chomp
+  end
+
+  def multiplayer
+    loop do
+      puts "\nThe game is multiplayer? (Y/N)"
+      choose = gets.chomp.downcase
+      return true if choose == 'y'
+      return false if choose == 'n'
+      puts 'Invalid option, please enter Y or N.'
+    end
+  end
+
 end
