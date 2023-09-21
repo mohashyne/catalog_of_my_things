@@ -2,7 +2,7 @@ require_relative '../logic/music_album'
 require_relative '../logic/item'
 
 RSpec.describe MusicAlbum do
-  let(:label) { double("Label", add_item: nil) }
+  let(:label) { double('Label', add_item: nil) }
   let(:music_album) { MusicAlbum.new(1, Date.today, true) }
 
   describe '#initialize' do

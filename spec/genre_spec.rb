@@ -1,13 +1,13 @@
 require_relative '../logic/genre'
 
 RSpec.describe Genre do
-  let(:genre) { Genre.new(1, "Rock") }
-  let(:item) { double("Item") }
+  let(:genre) { Genre.new(1, 'Rock') }
+  let(:item) { double('Item') }
 
   describe '#initialize' do
     it 'initializes with given id and name' do
       expect(genre.id).to eq(1)
-      expect(genre.name).to eq("Rock")
+      expect(genre.name).to eq('Rock')
     end
 
     it 'initializes with empty items array' do
