@@ -2,84 +2,45 @@ require 'date'
 require_relative '../logic/label'
 require_relative '../logic/book'
 
-describe Book do
+describe Label do
   before :each do
-    label = Label.new(1, 'New', 'Green')
-    @book = Book.new(1, Date.new(2020, 9, 15), 'Peter James', 'good')
-    @book.add_label(label)
+    @label = Label.new(1, 'Gift', 'Blue')
+    @first_book = Book.new(1, Date.new(2020, 9, 15), 'Frank Lenz', 'bad')
   end
 
   describe '#new' do
     it 'should be able to be created' do
-      expect(@book).to be_instance_of(Book)
+      expect(@label).to be_instance_of(Label)
     end
 
-    it 'should have the label: New, associated' do
-      expect(@book.label).to be_instance_of(Label)
-      expect(@book.label.id).to eq(1)
-      expect(@book.label.title).to eq('New')
-      expect(@book.label.color).to eq('Green')
+    it 'should save the id of the new label' do
+      expect(@label.id).to eq(1)
     end
 
-    it 'should save the id of the new book' do
-      expect(@book.id).to eq(1)
+    it 'should save the title of the new label' do
+      expect(@label.title).to eq('Gift')
     end
 
-    it 'should save the publish date of the new book' do
-      expect(@book.publish_date).to eq(Date.new(2020, 9, 15))
+    it 'should save the color of the new label' do
+      expect(@label.color).to eq('Blue')
     end
 
-    it 'should save the publisher of the new book' do
-      expect(@book.publisher).to eq('Peter James')
-    end
-
-    it 'should save the cover state of the new book' do
-      expect(@book.cover_state).to eq('good')
+    it 'should have the property: @items as an empty array' do
+      expect(@label.items).to eq([])
     end
   end
 
-  describe '#can_be_archived?' do
-    context 'when the publish date is newer than 10 years' do
-      it 'should return false' do
-        expect(@book.can_be_archived?).to eq(false)
+  describe '#add_item' do
+    context 'when a new Item is created' do
+      it 'it should be added to the @items array' do
+        @label.add_item(@first_book)
+        expect(@label.items.length).to eq(1)
+        expect(@label.items[0]).to eq(@first_book)
       end
-    end
 
-    context 'when the cover state is good' do
-      it 'should return false' do
-        expect(@book.can_be_archived?).to eq(false)
-      end
-    end
-
-    context 'when the publish date is older than 10 years' do
-      it 'should return true' do
-        @book.publish_date = Date.new(2010, 9, 15)
-        expect(@book.can_be_archived?).to eq(true)
-      end
-    end
-
-    context 'when the cover state is bad' do
-      it 'should return true' do
-        @book.publish_date = Date.new(2020, 9, 15)
-        @book.cover_state = 'bad'
-        expect(@book.can_be_archived?).to eq(true)
-      end
-    end
-  end
-
-  describe '#move_to_archive' do
-    context 'when the book cannot be archived' do
-      it '@archived property should be false' do
-        @book.move_to_archive
-        expect(@book.archived).to eq(false)
-      end
-    end
-
-    context 'when the book can be archived' do
-      it '@archived property should be true' do
-        @book.cover_state = 'bad'
-        @book.move_to_archive
-        expect(@book.archived).to eq(true)
+      it 'should have the new label saved in the label property' do
+        @label.add_item(@first_book)
+        expect(@label.items[0].label).to eq(@label)
       end
     end
   end
