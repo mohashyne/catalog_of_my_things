@@ -39,7 +39,6 @@ CREATE TABLE Games (
     FOREIGN KEY (item_id) REFERENCES Item(id)
 );
 
-
 CREATE TABLE Author (
     id INT GENERATED ALWAYS AS IDENTITY,
     first_name VARCHAR(50) NOT NULL,
