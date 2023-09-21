@@ -1,3 +1,5 @@
+CREATE DATABASE catalog;
+
 CREATE TABLE genres (
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL
@@ -14,3 +16,17 @@ CREATE TABLE music_albums (
     FOREIGN KEY (genre_id) REFERENCES genres(id)
 );
 
+CREATE TABLE labels (
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  title VARCHAR(200) NOT NULL,
+  color VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE books(
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  publish_date DATE NOT NULL,
+  publisher VARCHAR(255) NOT NULL,
+  cover_state VARCHAR(50) NOT NULL,
+  archived BOOLEAN NOT NULL DEFAULT FALSE,
+  label_id INT NOT NULL REFERENCES labels (id),
+);
