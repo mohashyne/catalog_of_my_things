@@ -118,7 +118,7 @@ class App
     if @genres == []
       genre = add_genre
     else
-      puts 'Select a Gener by selecting (index), or press (n) if you need to add a new one'
+      puts 'Select a Genre by selecting (index), or press (n) if you need to add a new one'
       list_genres
       option = @u_interact.select_genre
     end

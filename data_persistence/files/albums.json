@@ -20,5 +20,16 @@
       "id": 14,
       "name": "rnb"
     }
+  },
+  {
+    "id": 3665,
+    "publish_date": "2019-10-31",
+    "on_spotify": {
+      "on_spotify": true
+    },
+    "genre": {
+      "id": 16,
+      "name": "hip-hop"
+    }
   }
 ]
