@@ -1,0 +1,35 @@
+[
+  {
+    "id": 2752,
+    "publish_date": "2020-04-21",
+    "on_spotify": {
+      "on_spotify": true
+    },
+    "genre": {
+      "id": 14,
+      "name": "rnb"
+    }
+  },
+  {
+    "id": 178,
+    "publish_date": "2020-02-13",
+    "on_spotify": {
+      "on_spotify": false
+    },
+    "genre": {
+      "id": 14,
+      "name": "rnb"
+    }
+  },
+  {
+    "id": 3665,
+    "publish_date": "2019-10-31",
+    "on_spotify": {
+      "on_spotify": true
+    },
+    "genre": {
+      "id": 16,
+      "name": "hip-hop"
+    }
+  }
+]

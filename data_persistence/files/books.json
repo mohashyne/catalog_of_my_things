@@ -1,0 +1,24 @@
+[
+  {
+    "id": 291,
+    "publish_date": null,
+    "publisher": null,
+    "cover_state": "bad",
+    "label": {
+      "id": 43,
+      "title": "weg",
+      "color": "white"
+    }
+  },
+  {
+    "id": 6749,
+    "publish_date": "2019-10-31",
+    "publisher": "ghandi",
+    "cover_state": "bad",
+    "label": {
+      "id": 43,
+      "title": "weg",
+      "color": "white"
+    }
+  }
+]
