@@ -10,7 +10,7 @@ module GenreData
     data.map { |genre| json_to_genre(genre) }
   end
 
-  def save_genre(genres)
+  def save_genres(genres)
     data = genres.map { |genre| genre_to_json(genre) }
     write_file(file(FILENAME), data)
   end

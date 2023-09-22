@@ -4,6 +4,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+- [👀 Sneak Peak (Author's App presentation)](#sneak-peak)
 - [💻 Getting Started](#getting-started)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
@@ -39,6 +40,10 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
+## 👀 Sneak Peak (Author's video presentation) <a name="sneak-peak"></a>
+
+[Sneak Peak 👀](https://youtu.be/AK9R9ozqYNM?si=MgAzoAm9XBfYO8Bp)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

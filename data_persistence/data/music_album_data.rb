@@ -1,13 +1,13 @@
 require_relative '../file_helper'
 
 module MusicAlbumData
-  FILENAME = 'music_albums.json'.freeze
+  FILENAME = 'albums.json'.freeze
 
   include FileManager
 
-  def read_all_albums(labels)
+  def read_all_albums(genres)
     data = read_file(file(FILENAME))
-    data.map { |album| json_to_album(album, labels.find { |item| album['label']['id'] == item.id }) }
+    data.map { |album| json_to_album(album, genres.find { |item| album['genre']['id'] == item.id }) }
   end
 
   def save_album(albums)
@@ -20,13 +20,13 @@ module MusicAlbumData
       id: album.id,
       publish_date: album.publish_date,
       on_spotify: album.on_spotify,
-      label: { id: album.label.id, title: album.label.title, color: album.label.color }
+      genre: { id: album.genre.id, name: album.genre.name }
     }
   end
 
-  def json_to_album(album_json, label)
+  def json_to_album(album_json, genre)
     album = MusicAlbum.new(album_json['id'], album_json['publish_date'], album_json['on_spotify'])
-    album.add_label(label)
+    album.add_genre(genre)
     album
   end
 end
