@@ -25,7 +25,7 @@ module MusicAlbumData
   end
 
   def json_to_album(album_json, genre)
-    album = MusicAlbum.new(album_json['id'], album_json['publish_date'], on_spotify: album_json['on_spotify'])
+    album = MusicAlbum.new(album_json['id'], album_json['publish_date'], album_json['on_spotify'])
     album.add_genre(genre)
     album
   end

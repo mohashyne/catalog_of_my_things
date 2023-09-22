@@ -67,7 +67,7 @@ class CheckData
     albums.each_with_index do |album, idx|
       puts "\n #{idx}) ID: (#{album.id})" \
            "- Publish Date: #{album.publish_date} - Genre: #{album.genre.name} " \
-           "- Is available on Spotify: #{album.on_spotify}"
+           "- Is available on Spotify: #{album.on_spotify['on_spotify']}"
     end
   end
 
